@@ -48,7 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CoE.em8.Core\source\CoE.em8.Core.csproj">
+    <ProjectReference Include="..\..\CoE.em8.Core\source\CoE.em8.Core.csproj">
       <Project>{9be1e993-8b00-458d-9abd-f095537b54b5}</Project>
       <Name>Core</Name>
     </ProjectReference>
