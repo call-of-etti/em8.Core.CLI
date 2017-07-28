@@ -45,6 +45,7 @@
     <Compile Include="CliArgsParamsParser.cs" />
     <Compile Include="CliParamCategorizedCollection.cs" />
     <Compile Include="CliArgsRegistry.cs" />
+    <Compile Include="ColorUtil.cs" />
     <Compile Include="License\GNU\GNULicenseInfo.cs" />
     <Compile Include="License\GNU\GPLv2.cs" />
     <Compile Include="License\GNU\AGPLv3.cs" />
