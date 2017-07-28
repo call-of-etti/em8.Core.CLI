@@ -45,6 +45,15 @@
     <Compile Include="CliArgsParamsParser.cs" />
     <Compile Include="CliParamCategorizedCollection.cs" />
     <Compile Include="CliArgsRegistry.cs" />
+    <Compile Include="License\GNU\GNULicenseInfo.cs" />
+    <Compile Include="License\GNU\GPLv2.cs" />
+    <Compile Include="License\GNU\AGPLv3.cs" />
+    <Compile Include="License\GNU\LGPLv3.cs" />
+    <Compile Include="License\GNU\LGPLv2.cs" />
+    <Compile Include="License\GNU\LGPLv21.cs" />
+    <Compile Include="License\GNU\GPLv3.cs" />
+    <Compile Include="License\ILicenseInfo.cs" />
+    <Compile Include="License\LicenseInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
