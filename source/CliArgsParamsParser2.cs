@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CoE.em8.Core.CLI
 {
+    [Obsolete("Use CoE.em8.Core.CLI.CLArgs.Parser instead.")]
     public class CliArgsParamsParser2 : CliArgsParamsParser
     {
         public List<string> SimpleValueArgs => base.Args.SimpleValueArgs;

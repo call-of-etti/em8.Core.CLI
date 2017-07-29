@@ -39,6 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLArgs\CLACollectionStorer.cs" />
+    <Compile Include="CLArgs\CLAParser.cs" />
+    <Compile Include="CLArgs\CLARegistry.cs" />
+    <Compile Include="CLArgs\CLArg.cs" />
+    <Compile Include="CLArgs\ValueStorer.cs" />
     <Compile Include="CliArgException.cs" />
     <Compile Include="CliArgsParamsParser2.cs" />
     <Compile Include="CliParam.cs" />

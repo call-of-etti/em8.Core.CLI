@@ -3,19 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CoE.em8.Core.CLI
+namespace CoE.em8.Core.CLI.CLArgs
 {
-    [Obsolete("Use CoE.em8.Core.CLI.CLArgs.Parser instead.")]
-    public class CliArgsParamsParser
+    /// <summary>
+    /// CommandLine Args Parser
+    /// </summary>
+    public class CLAParser
     {
-        public CliParamCategorizedCollection Args
+        /// <summary>
+        /// The matching storer gets called when an key-value pair arg is found
+        /// </summary>
+        public CLARegistry KeyValuePairArgStorers
         {
             get;
-        } = new CliParamCategorizedCollection();
+        } = new CLARegistry();
 
-        public CliArgsParamsParser()
+        /// <summary>
+        /// Gets called on each arg that is a simple value
+        /// </summary>
+        public ValueStorer SimpleValueArgsStorer
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Gets called when there is no matching storer for a key-value pair arg found
+        /// </summary>
+        public KeyValuePairStorer LeftOverKeyValuePairArgsStorer
+        {
+            get; set;
+        }
+
+
+        public CLAParser(ValueStorer simpleValueArgsStorer, KeyValuePairStorer leftOverKeyValuePairArgsStorer, params CLArg[] clargs)
+        {
+            this.SimpleValueArgsStorer = simpleValueArgsStorer;
+            this.LeftOverKeyValuePairArgsStorer = leftOverKeyValuePairArgsStorer;
+
+            this.KeyValuePairArgStorers.RegisterRange(clargs);
+        }
+
+        public CLAParser(params CLArg[] clargs)
+            : this(null, null, clargs)
         {
         }
+
 
         /// <summary>
         /// -  ... single-char key(s)
@@ -57,7 +89,7 @@ namespace CoE.em8.Core.CLI
                     string a2 = a.TrimStart('/', '-');
                     key = a2;
                 }
-                else if(a[0] == '-')
+                else if (a[0] == '-')
                 {
                     // single-char key(s)
 
@@ -94,7 +126,7 @@ namespace CoE.em8.Core.CLI
                     if (key == null)
                     {
                         // simple-value
-                        this.Args.SimpleValueArgs.Add(a);
+                        this.SimpleValueArgsStorer?.Invoke(a);
                     }
                     else
                     {
@@ -116,15 +148,15 @@ namespace CoE.em8.Core.CLI
 
         protected void StoreParam(string key, string value)
         {
-            // is such an parameter expected?
-            if (this.Args.KeyValuePairArgs.Contains(key))
+            // is such a parameter expected?
+            if (this.KeyValuePairArgStorers.ContainsKey(key))
             {
-                this.Args.KeyValuePairArgs[key].Value = value;
+                this.KeyValuePairArgStorers[key].storeValueHandler?.Invoke(value);
             }
             else
             {
                 // unexpected
-                this.Args.GhostArgs.Register(new CliParam(key, value));
+                this.LeftOverKeyValuePairArgsStorer?.Invoke(new KeyValuePair<string, string>(key, value));
             }
         }
     }

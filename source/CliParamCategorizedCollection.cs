@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CoE.em8.Core.CLI
 {
+    [Obsolete]
     public class CliParamCategorizedCollection
     {
         public List<string> SimpleValueArgs

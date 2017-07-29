@@ -6,6 +6,7 @@ using System.Text;
 
 namespace CoE.em8.Core.CLI
 {
+    [Obsolete]
     public class CliArgsRegistry
     {
         Dictionary<string, CliParam> registry = new Dictionary<string, CliParam>();
