@@ -5,14 +5,18 @@ using System.Text;
 
 namespace CoE.em8.Core.CLI.CLArgs
 {
-    public class CLACollectionStorer
+    /// <summary>
+    /// Stores all passed values in the given collection
+    /// </summary>
+    public class CLACollectionStorer : CLArg
     {
         private ICollection<string> collection;
 
-        public CLACollectionStorer(ICollection<string> collection, CLAParser parser, string argID, params string[] argAliases)
+        public CLACollectionStorer(string argID, ICollection<string> collection, params string[] argAliases)
+            : base(argID, null, argAliases)
         {
             this.collection = collection;
-            parser.KeyValuePairArgStorers.Register(new CLArg(argID, this.Store, argAliases));
+            this.storeValueHandler = this.Store;
         }
 
         private void Store(string valueToStore)
