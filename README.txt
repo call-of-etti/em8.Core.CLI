@@ -22,7 +22,8 @@ Dependencies:
 
   - GNU Getopt .NET
         Description:
-            This is a Getopt C#.NET port based on Aaron M. Renn's Java port of Getopt.
+            This is a Getopt C#.NET port based on Aaron M. Renn's Java port of
+            Getopt.
         Author:
             Klaus Prückl (kprueckl)
         License:
