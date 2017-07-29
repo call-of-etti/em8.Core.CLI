@@ -6,7 +6,7 @@ using System.Text;
 namespace CoE.em8.Core.CLI.CLArgs
 {
     /// <summary>
-    /// CommandLine Args Parser
+    /// Command-line args parser
     /// </summary>
     public class CLAParser
     {
@@ -19,7 +19,7 @@ namespace CoE.em8.Core.CLI.CLArgs
         } = new CLARegistry();
 
         /// <summary>
-        /// Gets called on each arg that is a simple value
+        /// Gets called for each arg that is a simple value
         /// </summary>
         public ValueStorer SimpleValueArgsStorer
         {
@@ -35,16 +35,20 @@ namespace CoE.em8.Core.CLI.CLArgs
         }
 
 
-        public CLAParser(ValueStorer simpleValueArgsStorer, KeyValuePairStorer leftOverKeyValuePairArgsStorer, params CLArg[] clargs)
+        /// <param name="simpleValueArgsStorer">Gets called for each arg that is a simple value</param>
+        /// <param name="leftOverKeyValuePairArgsStorer">Gets called when there is no matching storer for a key-value pair arg found</param>
+        /// <param name="keyValuePairArgStorers">The matching storer gets called when an key-value pair arg is found</param>
+        public CLAParser(ValueStorer simpleValueArgsStorer, KeyValuePairStorer leftOverKeyValuePairArgsStorer, params CLArg[] keyValuePairArgStorers)
         {
             this.SimpleValueArgsStorer = simpleValueArgsStorer;
             this.LeftOverKeyValuePairArgsStorer = leftOverKeyValuePairArgsStorer;
 
-            this.KeyValuePairArgStorers.RegisterRange(clargs);
+            this.KeyValuePairArgStorers.RegisterRange(keyValuePairArgStorers);
         }
 
-        public CLAParser(params CLArg[] clargs)
-            : this(null, null, clargs)
+        /// <param name="keyValuePairArgStorers">The matching storer gets called when an key-value pair arg is found</param>
+        public CLAParser(params CLArg[] keyValuePairArgStorers)
+            : this(null, null, keyValuePairArgStorers)
         {
         }
 
