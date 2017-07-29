@@ -12,7 +12,7 @@ namespace CoE.em8.Core.CLI.CLArgs
         public List<string> Aliases
         {
             get;
-        }
+        } = new List<string>();
 
         public CLArg(string id, ValueStorer storeValueHandler, params string[] aliases)
         {
