@@ -20,17 +20,17 @@ License:
 Dependencies:
 
 
-  - GNU Getopt .NET
+  - em8.Core
         Description:
-            This is a Getopt C#.NET port based on Aaron M. Renn's Java port of
-            Getopt.
-        Author:
-            Klaus Prückl (kprueckl)
+            Core library of the em8 project.
+        Authors:
+          - Michael Wedl (MWedl)
+          - Elias Batek (0xEAB)
         License:
-            GNU Lesser General Public License, Version 2.1
-                <https://www.gnu.org/licenses/lgpl-2.1.html>
+            GNU Lesser General Public License, Version 3.0
+                <https://www.gnu.org/licenses/lgpl-3.0.html>
         Source:
-            <https://getopt.codeplex.com/>
+            <https://github.com/call-of-etti/em8.Core>
 
 
 ================================================================================
