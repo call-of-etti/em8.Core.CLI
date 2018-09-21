@@ -10,8 +10,9 @@ Authors:
   - Elias Batek (0xEAB)
 
 License:
-    GNU Lesser General Public License, Version 3
-    For more information, please read the <LICENSE> file.
+Distributed under the Boost Software License, Version 1.0.
+(See accompanying file LICENSE_1_0.txt or copy at
+https://www.boost.org/LICENSE_1_0.txt)
 
 
 ================================================================================
@@ -27,8 +28,7 @@ Dependencies:
           - Michael Wedl (MWedl)
           - Elias Batek (0xEAB)
         License:
-            GNU Lesser General Public License, Version 3.0
-                <https://www.gnu.org/licenses/lgpl-3.0.html>
+            Boost Software License, Version 1.0
         Source:
             <https://github.com/call-of-etti/em8.Core>
 
@@ -36,4 +36,4 @@ Dependencies:
 ================================================================================
 
 
-                                                Copyright (C)  2017 Call of Etti
+                                                Copyright (C) 2018  Call of Etti
